@@ -1,0 +1,31 @@
+# Freeze wand item:
+freeze-wand-item-name: '&bFreeze Wand' # The name of the item.
+freeze-wand-item-lore: '&8| &7Right-click a player to freeze them!' # The lore (description) of the item.
+
+# Messages:
+# Sent when the player runs /give-freeze-wand and doesn't have the required permission. (see config.yml)
+no-permission: '&c&l!&c You do not have permission to run this command.'
+
+# Sent when a player attempts to freeze another player that is immune. (see config.yml for the immunity permission)
+player-is-immune-to-freeze: "&c&l!&c This player is immune to being frozen!"
+
+# Sent to the command executor who gave the freeze wand to a player.
+# {0} - The name of the freeze wand item.
+# {1} - The name of the player who received the freeze wand item.
+gave-freeze-wand: '&a&l✔ &aYou have given the {0}&a to {1}&a.'
+
+# Sent when the player successfully receives a freeze wand.
+# {0} - The name of the freeze wand item.
+receive-freeze-wand: '&aYou have received the {0}&a.'
+
+# Sent when you freeze someone.
+# {0} - The name of the player that has been frozen.
+freeze-player: '&a&l✔ &aYou have successfully frozen {0}&a.'
+
+player-got-frozen: '&c&l!&c You have been frozen.' # Sent to the player that got frozen.
+player-cant-move: '&cStop moving! You are frozen!' # Sent when a frozen player tries to move.
+
+# Sent when the player unfreezes another player.
+# {0} - The name of the player that got unfrozen.
+unfreeze-player: '&a&l✔ &aYou have unfrozen {0}&a.'
+player-got-unfrozen: '&aYou have been unfrozen!' # Sent when a player gets unfrozen.

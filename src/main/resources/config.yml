@@ -1,0 +1,9 @@
+# The language of all messages in this plugin.
+# See the 'lang' folder for all available languages.
+language: en-uk
+
+# Allows players to give themselves (and others) freeze wands.
+give-freeze-wand-permission: freeze-wand.give
+
+# Grants players immunity from being frozen.
+immune-to-freeze-permission: freeze-wand.immune
