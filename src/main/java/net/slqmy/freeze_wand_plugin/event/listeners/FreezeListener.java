@@ -55,7 +55,7 @@ public final class FreezeListener implements Listener {
 				return;
 			}
 
-			UUID clickedEntityUuid = rightClickedEntity.getUniqueId();
+			final UUID clickedEntityUuid = rightClickedEntity.getUniqueId();
 
 			if (frozenPlayers.contains(clickedEntityUuid)) {
 				frozenPlayers.remove(clickedEntityUuid);
