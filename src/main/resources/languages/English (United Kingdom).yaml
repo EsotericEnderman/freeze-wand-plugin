@@ -6,9 +6,6 @@ FREEZE_WAND_ITEM_NAME: "<aqua>Freeze Wand</aqua>" # The name of the item.
 FREEZE_WAND_ITEM_LORE: "<dark_gray>|</dark_gray> <gray>Right-click a player to freeze them!</gray>" # The lore (description) of the item.
 
 # Messages:
-# Sent when the player runs /give-freeze-wand and doesn"t have the required permission. (see config.yml)
-NO_PERMISSION: "<red><bold>!</bold> You do not have permission to run this command.</red>"
-
 # Sent when a player attempts to freeze another player that is immune. (see config.yml for the immunity permission)
 PLAYER_IS_IMMUNE_TO_FREEZE: "<red><bold>!</bold> This player is immune to being frozen!</red>"
 
