@@ -1,5 +1,4 @@
-# The language of all messages in this plugin.
-# See the 'lang' folder for all available languages.
+# The language that messages will be in by default.
 default-language: English (United Kingdom)
 
 # Allows players to give themselves (and others) freeze wands.
