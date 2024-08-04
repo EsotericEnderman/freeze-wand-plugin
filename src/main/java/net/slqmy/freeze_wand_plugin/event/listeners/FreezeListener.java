@@ -66,14 +66,14 @@ public final class FreezeListener implements Listener {
 				rightClickedEntity
 						.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_UNFROZEN, rightClickedEntity));
 				player.sendMessage(languageManager.getMessage(Message.UNFREEZE_PLAYER, rightClickedEntity,
-						rightClickedEntity.getName()));
+						rightClickedEntity.name()));
 			} else {
 				frozenPlayers.add(rightClickedEntity.getUniqueId());
 
 				rightClickedEntity
 						.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_FROZEN, rightClickedEntity));
 				player.sendMessage(
-						languageManager.getMessage(Message.FREEZE_PLAYER, player, rightClickedEntity.getName()));
+						languageManager.getMessage(Message.FREEZE_PLAYER, player, rightClickedEntity.name()));
 			}
 		}
 	}

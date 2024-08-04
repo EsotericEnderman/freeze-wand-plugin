@@ -12,20 +12,20 @@ PLAYER_IS_IMMUNE_TO_FREEZE: "<red><bold>!</bold> This player is immune to being 
 # Sent to the command executor who gave the freeze wand to a player.
 # {0} - The name of the freeze wand item.
 # {1} - The name of the player who received the freeze wand item.
-GAVE_FREEZE_WAND: "<green><bold>✔</bold> You have given the {0} to {1}.</green>"
+GAVE_FREEZE_WAND: "<green><bold>✔</bold> You have given the </green>{0}<green> to </green>{1}<green>.</green>"
 
 # Sent when the player successfully receives a freeze wand.
 # {0} - The name of the freeze wand item.
-RECEIVE_FREEZE_WAND: "<green>You have received the {0}.</green>"
+RECEIVE_FREEZE_WAND: "<green>You have received the </green>{0}<green>.</green>"
 
 # Sent when you freeze someone.
 # {0} - The name of the player that has been frozen.
-FREEZE_PLAYER: "<green><bold>✔</bold> You have successfully frozen {0}.</green>"
+FREEZE_PLAYER: "<green><bold>✔</bold> You have successfully frozen </green>{0}<green>.</green>"
 
 PLAYER_GOT_FROZEN: "<red><bold>!</bold> You have been frozen.</red>" # Sent to the player that got frozen.
 PLAYER_CANT_MOVE: "<red>Stop moving! You are frozen!</red>" # Sent when a frozen player tries to move.
 
 # Sent when the player unfreezes another player.
 # {0} - The name of the player that got unfrozen.
-UNFREEZE_PLAYER: "<green><bold>✔</bold> You have unfrozen {0}.<green>"
-PLAYER_GOT_UNFROZEN: "<green>You have been unfrozen!<green>" # Sent when a player gets unfrozen.
+UNFREEZE_PLAYER: "<green><bold>✔</bold> You have unfrozen </green>{0}.<green></green>"
+PLAYER_GOT_UNFROZEN: "<green>You have been unfrozen!</green>" # Sent when a player gets unfrozen.

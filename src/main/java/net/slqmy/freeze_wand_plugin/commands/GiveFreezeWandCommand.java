@@ -1,5 +1,6 @@
 package net.slqmy.freeze_wand_plugin.commands;
 
+import net.kyori.adventure.text.Component;
 import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
 import net.slqmy.freeze_wand_plugin.language.LanguageManager;
 import net.slqmy.freeze_wand_plugin.language.Message;
@@ -47,10 +48,10 @@ public class GiveFreezeWandCommand extends CommandAPICommand {
 
 			target.getInventory().addItem(freezeWand);
 
-			final String itemName = languageManager.getRawMessageString(Message.FREEZE_WAND_ITEM_NAME, languageManager.getLanguage(target));
+			final Component itemName = freezeWand.displayName();
 
 			if (!target.equals(sender)) {
-				sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName, target.getName()));
+				sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName, target.name()));
 			}
 
 			target.sendMessage(languageManager.getMessage(Message.RECEIVE_FREEZE_WAND, target, itemName));
