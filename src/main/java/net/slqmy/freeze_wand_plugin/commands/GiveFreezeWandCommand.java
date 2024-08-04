@@ -48,7 +48,7 @@ public class GiveFreezeWandCommand extends CommandAPICommand {
 
 			target.getInventory().addItem(freezeWand);
 
-			final Component itemName = freezeWand.displayName();
+			final String itemName = languageManager.getRawMessageString(Message.FREEZE_WAND_ITEM_NAME, languageManager.getLanguage(target));
 
 			if (!target.equals(sender)) {
 				sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName, Component.text(target.getName())));
