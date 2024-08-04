@@ -29,11 +29,10 @@ public class GiveFreezeWandCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(
-					@NotNull final CommandSender sender,
-					@NotNull final Command command,
-					@NotNull final String label,
-					final @NotNull String @NotNull [] args
-	) {
+			@NotNull final CommandSender sender,
+			@NotNull final Command command,
+			@NotNull final String label,
+			final @NotNull String @NotNull [] args) {
 		if (args.length > 1) {
 			return false;
 		}
@@ -70,7 +69,8 @@ public class GiveFreezeWandCommand implements CommandExecutor {
 		final ItemMeta wandMeta = freezeWand.getItemMeta();
 		wandMeta.displayName(languageManager.getMessage(Message.FREEZE_WAND_ITEM_NAME, sender));
 		wandMeta.lore(List.of(languageManager.getMessage(Message.FREEZE_WAND_ITEM_LORE, sender)));
-		wandMeta.getPersistentDataContainer().set(new NamespacedKey(plugin, "is_freeze_wand"), PersistentDataType.BOOLEAN, true);
+		wandMeta.getPersistentDataContainer().set(new NamespacedKey(plugin, "is_freeze_wand"),
+				PersistentDataType.BOOLEAN, true);
 		freezeWand.setItemMeta(wandMeta);
 
 		target.getInventory().addItem(freezeWand);
@@ -78,7 +78,8 @@ public class GiveFreezeWandCommand implements CommandExecutor {
 		final Component itemName = freezeWand.displayName();
 
 		if (!target.equals(sender)) {
-			sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName, Component.text(target.getName())));
+			sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName,
+					Component.text(target.getName())));
 		}
 
 		target.sendMessage(languageManager.getMessage(Message.RECEIVE_FREEZE_WAND, target, itemName));
