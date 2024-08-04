@@ -13,22 +13,22 @@ NO_PERMISSION: '&c&l!&c You do not have permission to run this command.'
 PLAYER_IS_IMMUNE_TO_FREEZE: "&c&l!&c This player is immune to being frozen!"
 
 # Sent to the command executor who gave the freeze wand to a player.
-# {0} - The name of the freeze wand item.
-# {1} - The name of the player who received the freeze wand item.
-GAVE_FREEZE_WAND: '&a&l✔ &aYou have given the {0}&a to {1}&a.'
+# %s - The name of the freeze wand item.
+# %s - The name of the player who received the freeze wand item.
+GAVE_FREEZE_WAND: '&a&l✔ &aYou have given the %s&a to %s&a.'
 
 # Sent when the player successfully receives a freeze wand.
-# {0} - The name of the freeze wand item.
-RECEIVE_FREEZE_WAND: '&aYou have received the {0}&a.'
+# %s - The name of the freeze wand item.
+RECEIVE_FREEZE_WAND: '&aYou have received the %s&a.'
 
 # Sent when you freeze someone.
-# {0} - The name of the player that has been frozen.
-FREEZE_PLAYER: '&a&l✔ &aYou have successfully frozen {0}&a.'
+# %s - The name of the player that has been frozen.
+FREEZE_PLAYER: '&a&l✔ &aYou have successfully frozen %s&a.'
 
 PLAYER_GOT_FROZEN: '&c&l!&c You have been frozen.' # Sent to the player that got frozen.
 PLAYER_CANT_MOVE: '&cStop moving! You are frozen!' # Sent when a frozen player tries to move.
 
 # Sent when the player unfreezes another player.
-# {0} - The name of the player that got unfrozen.
-UNFREEZE_PLAYER: '&a&l✔ &aYou have unfrozen {0}&a.'
+# %s - The name of the player that got unfrozen.
+UNFREEZE_PLAYER: '&a&l✔ &aYou have unfrozen %s&a.'
 PLAYER_GOT_UNFROZEN: '&aYou have been unfrozen!' # Sent when a player gets unfrozen.
