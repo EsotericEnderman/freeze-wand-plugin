@@ -38,7 +38,8 @@ public class SetLanguageCommand extends CommandAPICommand {
             Bukkit.getLogger().info(selectedLanguage);
 
             if (!languages.contains(selectedLanguage)) {
-              Component errorMessage = languageManager.getMessage(Message.UNKNOWN_LANGUAGE, info.sender(), true, new Object[] {selectedLanguage});
+              Component errorMessage = languageManager.getMessage(Message.UNKNOWN_LANGUAGE, info.sender(), true,
+                  new Object[] { selectedLanguage });
               throw CustomArgumentException.fromAdventureComponent(errorMessage);
             }
 

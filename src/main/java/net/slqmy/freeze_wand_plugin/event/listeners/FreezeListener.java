@@ -45,12 +45,10 @@ public final class FreezeListener implements Listener {
 		final ItemMeta heldItemMeta = heldItem.getItemMeta();
 
 		if (heldItemMeta != null &&
-		    Boolean.TRUE.equals(
-						    heldItemMeta
-										    .getPersistentDataContainer()
-										    .get(new NamespacedKey(plugin, "is_freeze_wand"), PersistentDataType.BOOLEAN)
-		    )
-		) {
+				Boolean.TRUE.equals(
+						heldItemMeta
+								.getPersistentDataContainer()
+								.get(new NamespacedKey(plugin, "is_freeze_wand"), PersistentDataType.BOOLEAN))) {
 			final String immuneToFreezePermission = plugin.getConfig().getString("immune-to-freeze-permission");
 			assert immuneToFreezePermission != null;
 
@@ -65,13 +63,17 @@ public final class FreezeListener implements Listener {
 			if (frozenPlayers.contains(rightClickedEntity.getUniqueId())) {
 				frozenPlayers.remove(rightClickedEntity.getUniqueId());
 
-				rightClickedEntity.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_UNFROZEN, rightClickedEntity));
-				player.sendMessage(languageManager.getMessage(Message.UNFREEZE_PLAYER, rightClickedEntity, rightClickedEntity.getName()));
+				rightClickedEntity
+						.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_UNFROZEN, rightClickedEntity));
+				player.sendMessage(languageManager.getMessage(Message.UNFREEZE_PLAYER, rightClickedEntity,
+						rightClickedEntity.getName()));
 			} else {
 				frozenPlayers.add(rightClickedEntity.getUniqueId());
 
-				rightClickedEntity.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_FROZEN, rightClickedEntity));
-				player.sendMessage(languageManager.getMessage(Message.FREEZE_PLAYER, player, rightClickedEntity.getName()));
+				rightClickedEntity
+						.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_FROZEN, rightClickedEntity));
+				player.sendMessage(
+						languageManager.getMessage(Message.FREEZE_PLAYER, player, rightClickedEntity.getName()));
 			}
 		}
 	}

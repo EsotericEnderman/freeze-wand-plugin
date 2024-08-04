@@ -25,7 +25,9 @@ public class FileUtil {
       String jarFilePath = jarPath.substring(jarPathPrefix.length(), exclamationMarkIndex);
 
       try (JarFile jarFile = new JarFile(jarFilePath)) {
-        return jarFile.stream().map(JarEntry::getName).filter(name -> name.startsWith(resourcePath) && !name.equals(resourcePath)).map(name -> name.substring(resourcePath.length())).collect(Collectors.toList());
+        return jarFile.stream().map(JarEntry::getName)
+            .filter(name -> name.startsWith(resourcePath) && !name.equals(resourcePath))
+            .map(name -> name.substring(resourcePath.length())).collect(Collectors.toList());
       }
     } catch (IOException exception) {
       exception.printStackTrace();

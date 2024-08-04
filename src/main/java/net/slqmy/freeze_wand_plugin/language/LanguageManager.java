@@ -58,7 +58,8 @@ public class LanguageManager {
     String languagesResourceFolderName = languagesFolderName + "/";
     List<String> languageResourceFileNames = FileUtil.getResourceFolderResourceFileNames(languagesResourceFolderName);
 
-    languageResourceFileNames.forEach((fileName) -> plugin.saveResource(languagesFolderName + File.separator + fileName, false));
+    languageResourceFileNames
+        .forEach((fileName) -> plugin.saveResource(languagesFolderName + File.separator + fileName, false));
   }
 
   private void loadLanguageMessages() {
@@ -119,7 +120,8 @@ public class LanguageManager {
     setLanguage(player.getUniqueId(), language);
   }
 
-  private Component getMessage(Message message, String language, boolean fallbackOnDefaultLanguage, Object... arguments) {
+  private Component getMessage(Message message, String language, boolean fallbackOnDefaultLanguage,
+      Object... arguments) {
     Map<Message, String> languageMessageMap = languages.get(language);
     String miniMessageString = languageMessageMap.get(message);
 
@@ -134,7 +136,8 @@ public class LanguageManager {
     return getMessage(message, language, true, arguments);
   }
 
-  public Component getMessage(Message message, CommandSender commandSender, boolean fallbackOnDefaultLanguage, Object... arguments) {
+  public Component getMessage(Message message, CommandSender commandSender, boolean fallbackOnDefaultLanguage,
+      Object... arguments) {
     return getMessage(message, getLanguage(commandSender), fallbackOnDefaultLanguage, arguments);
   }
 
