@@ -1,6 +1,7 @@
 package net.slqmy.freeze_wand_plugin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,6 +21,12 @@ public final class FreezeWandPlugin extends JavaPlugin {
 
 	private PlayerDataManager playerDataManager;
 	private LanguageManager languageManager;
+
+	private final NamespacedKey isItemFreezeWandKey = new NamespacedKey(this, "is_freeze_wand");
+
+	public NamespacedKey getIsItemFreezeWandKey() {
+		return isItemFreezeWandKey;
+	}
 
 	public PlayerDataManager getPlayerDataManager() {
 		return playerDataManager;

@@ -6,7 +6,6 @@ import net.slqmy.freeze_wand_plugin.language.LanguageManager;
 import net.slqmy.freeze_wand_plugin.language.Message;
 
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -20,8 +19,10 @@ import java.util.List;
 
 public class GiveFreezeWandCommand extends CommandAPICommand {
 
+
 	public GiveFreezeWandCommand(@NotNull final FreezeWandPlugin plugin) {
 		super("give-freeze-wand");
+
 		withAliases("gfw", "fw", "give-freeze", "give-wand", "freeze-wand", "freeze");
 		withPermission(plugin.getConfig().getString("give-freeze-wand-permission"));
 
@@ -43,7 +44,7 @@ public class GiveFreezeWandCommand extends CommandAPICommand {
 			final ItemMeta wandMeta = freezeWand.getItemMeta();
 			wandMeta.displayName(languageManager.getMessage(Message.FREEZE_WAND_ITEM_NAME, sender));
 			wandMeta.lore(List.of(languageManager.getMessage(Message.FREEZE_WAND_ITEM_LORE, sender)));
-			wandMeta.getPersistentDataContainer().set(new NamespacedKey(plugin, "is_freeze_wand"), PersistentDataType.BOOLEAN, true);
+			wandMeta.getPersistentDataContainer().set(plugin.getIsItemFreezeWandKey(), PersistentDataType.BOOLEAN, true);
 			freezeWand.setItemMeta(wandMeta);
 
 			target.getInventory().addItem(freezeWand);
