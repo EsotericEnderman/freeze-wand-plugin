@@ -120,24 +120,38 @@ public class LanguageManager {
     setLanguage(player.getUniqueId(), language);
   }
 
-  private Component getMessage(Message message, String language, boolean fallbackOnDefaultLanguage,
-      Object... arguments) {
+  public String getRawMessageString(Message message, String language, boolean fallbackOnDefaultLanguage) {
     Map<Message, String> languageMessageMap = languages.get(language);
     String miniMessageString = languageMessageMap.get(message);
 
     if (miniMessageString == null) {
-      return fallbackOnDefaultLanguage ? getMessage(message, defaultLanguage, false, arguments) : null;
+      return fallbackOnDefaultLanguage ? getRawMessageString(message, defaultLanguage, false) : null;
     }
 
-    return miniMessage.deserialize(String.format(miniMessageString, arguments));
+    return miniMessageString;
   }
 
-  private Component getMessage(Message message, String language, Object... arguments) {
+  public String getRawMessageString(Message message, String language) {
+    return getRawMessageString(message, language, true);
+  }
+
+  public String getFormattedMessageString(Message message, String language, boolean fallbackOnDefaultLanguage, Object... arguments) {
+    return String.format(getRawMessageString(message, language, fallbackOnDefaultLanguage), arguments);
+  }
+
+  public String getFormattedMessageString(Message message, String language, Object... arguments) {
+    return getFormattedMessageString(message, language, true, arguments);
+  }
+
+  public Component getMessage(Message message, String language, boolean fallbackOnDefaultLanguage, Object... arguments) {
+    return miniMessage.deserialize(getFormattedMessageString(message, language, fallbackOnDefaultLanguage, arguments));
+  }
+
+  public Component getMessage(Message message, String language, Object... arguments) {
     return getMessage(message, language, true, arguments);
   }
 
-  public Component getMessage(Message message, CommandSender commandSender, boolean fallbackOnDefaultLanguage,
-      Object... arguments) {
+  public Component getMessage(Message message, CommandSender commandSender, boolean fallbackOnDefaultLanguage, Object... arguments) {
     return getMessage(message, getLanguage(commandSender), fallbackOnDefaultLanguage, arguments);
   }
 
