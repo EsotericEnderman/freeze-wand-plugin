@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand.util;
+package net.slqmy.freeze_wand_plugin.util;
 
 import org.jetbrains.annotations.NotNull;
 

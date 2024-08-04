@@ -1,9 +1,10 @@
-package net.slqmy.freeze_wand.command;
+package net.slqmy.freeze_wand_plugin.command;
 
 import net.kyori.adventure.text.Component;
-import net.slqmy.freeze_wand.FreezeWandPlugin;
-import net.slqmy.freeze_wand.enums.Message;
-import net.slqmy.freeze_wand.manager.MessageManager;
+import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
+import net.slqmy.freeze_wand_plugin.enums.Message;
+import net.slqmy.freeze_wand_plugin.manager.MessageManager;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

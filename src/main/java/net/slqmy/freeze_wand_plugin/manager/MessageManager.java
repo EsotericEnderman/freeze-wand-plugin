@@ -1,12 +1,13 @@
-package net.slqmy.freeze_wand.manager;
+package net.slqmy.freeze_wand_plugin.manager;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
-import net.slqmy.freeze_wand.FreezeWandPlugin;
-import net.slqmy.freeze_wand.enums.Message;
-import net.slqmy.freeze_wand.util.MessageUtil;
+import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
+import net.slqmy.freeze_wand_plugin.enums.Message;
+import net.slqmy.freeze_wand_plugin.util.MessageUtil;
+
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
 

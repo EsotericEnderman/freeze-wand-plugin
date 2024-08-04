@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand.enums;
+package net.slqmy.freeze_wand_plugin.enums;
 
 public enum Message {
 	FREEZE_WAND_ITEM_NAME,

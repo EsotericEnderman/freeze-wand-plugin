@@ -1,12 +1,13 @@
-package net.slqmy.freeze_wand;
+package net.slqmy.freeze_wand_plugin;
 
-import net.slqmy.freeze_wand.command.GiveFreezeWandCommand;
-import net.slqmy.freeze_wand.event.listener.FreezeListener;
-import net.slqmy.freeze_wand.event.listener.PlayerMoveListener;
-import net.slqmy.freeze_wand.manager.MessageManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import net.slqmy.freeze_wand_plugin.command.GiveFreezeWandCommand;
+import net.slqmy.freeze_wand_plugin.event.listener.FreezeListener;
+import net.slqmy.freeze_wand_plugin.event.listener.PlayerMoveListener;
+import net.slqmy.freeze_wand_plugin.manager.MessageManager;
 
 import java.io.File;
 import java.util.ArrayList;

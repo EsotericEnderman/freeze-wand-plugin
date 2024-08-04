@@ -1,12 +1,13 @@
-package net.slqmy.freeze_wand.event.listener;
+package net.slqmy.freeze_wand_plugin.event.listener;
 
-import net.slqmy.freeze_wand.FreezeWandPlugin;
-import net.slqmy.freeze_wand.enums.Message;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.jetbrains.annotations.NotNull;
+
+import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
+import net.slqmy.freeze_wand_plugin.enums.Message;
 
 public final class PlayerMoveListener implements Listener {
 
