@@ -17,72 +17,50 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
+import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.PlayerArgument;
+
 import java.util.List;
 
-public class GiveFreezeWandCommand implements CommandExecutor {
-
-	private final FreezeWandPlugin plugin;
+public class GiveFreezeWandCommand extends CommandAPICommand {
 
 	public GiveFreezeWandCommand(@NotNull final FreezeWandPlugin plugin) {
-		this.plugin = plugin;
-	}
-
-	@Override
-	public boolean onCommand(
-			@NotNull final CommandSender sender,
-			@NotNull final Command command,
-			@NotNull final String label,
-			final @NotNull String @NotNull [] args) {
-		if (args.length > 1) {
-			return false;
-		}
-
-		final Player target;
-
-		if (args.length == 1) {
-			final String playerName = args[0];
-
-			target = Bukkit.getPlayer(playerName);
-
-			if (target == null) {
-				return false;
-			}
-		} else {
-			if (sender instanceof Player) {
-				target = ((Player) sender);
-			} else {
-				return false;
-			}
-		}
-
-		final String permission = plugin.getConfig().getString("give-freeze-wand-permission");
-		assert permission != null;
+		super("give-freeze-wand");
+		withAliases("gfw", "fw", "give-freeze", "give-wand", "freeze-wand", "freeze");
+		withPermission(plugin.getConfig().getString("give-freeze-wand-permission"));
 
 		final LanguageManager languageManager = plugin.getLanguageManager();
 
-		if (!sender.hasPermission(permission)) {
-			sender.sendMessage(languageManager.getMessage(Message.NO_PERMISSION, sender));
-			return true;
-		}
+		final String playerArgumentNodeName = "player";
 
-		final ItemStack freezeWand = new ItemStack(Material.STICK);
-		final ItemMeta wandMeta = freezeWand.getItemMeta();
-		wandMeta.displayName(languageManager.getMessage(Message.FREEZE_WAND_ITEM_NAME, sender));
-		wandMeta.lore(List.of(languageManager.getMessage(Message.FREEZE_WAND_ITEM_LORE, sender)));
-		wandMeta.getPersistentDataContainer().set(new NamespacedKey(plugin, "is_freeze_wand"),
-				PersistentDataType.BOOLEAN, true);
-		freezeWand.setItemMeta(wandMeta);
+		withArguments(new PlayerArgument(playerArgumentNodeName).setOptional(true));
 
-		target.getInventory().addItem(freezeWand);
+		executesPlayer((executor) -> {
+			final Player sender = executor.sender();
+			Player target = (Player) executor.args().get(playerArgumentNodeName);
 
-		final Component itemName = freezeWand.displayName();
+			if (target == null) {
+				target = executor.sender();
+			}
 
-		if (!target.equals(sender)) {
-			sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName,
-					Component.text(target.getName())));
-		}
+			final ItemStack freezeWand = new ItemStack(Material.STICK);
+			final ItemMeta wandMeta = freezeWand.getItemMeta();
+			wandMeta.displayName(languageManager.getMessage(Message.FREEZE_WAND_ITEM_NAME, sender));
+			wandMeta.lore(List.of(languageManager.getMessage(Message.FREEZE_WAND_ITEM_LORE, sender)));
+			wandMeta.getPersistentDataContainer().set(new NamespacedKey(plugin, "is_freeze_wand"), PersistentDataType.BOOLEAN, true);
+			freezeWand.setItemMeta(wandMeta);
 
-		target.sendMessage(languageManager.getMessage(Message.RECEIVE_FREEZE_WAND, target, itemName));
-		return true;
+			target.getInventory().addItem(freezeWand);
+
+			final Component itemName = freezeWand.displayName();
+
+			if (!target.equals(sender)) {
+				sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName, Component.text(target.getName())));
+			}
+
+			target.sendMessage(languageManager.getMessage(Message.RECEIVE_FREEZE_WAND, target, itemName));
+		});
+
+		register();
 	}
 }
