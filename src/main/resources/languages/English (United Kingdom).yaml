@@ -2,33 +2,33 @@ SET_LANGUAGE_SUCCESSFULLY: Successfully set your language to %s!
 UNKNOWN_LANGUAGE: "Unsupported or unknown language: '%s'"
 
 # Freeze wand item:
-FREEZE_WAND_ITEM_NAME: '&bFreeze Wand' # The name of the item.
-FREEZE_WAND_ITEM_LORE: '&8| &7Right-click a player to freeze them!' # The lore (description) of the item.
+FREEZE_WAND_ITEM_NAME: '<aqua>Freeze Wand</aqua>' # The name of the item.
+FREEZE_WAND_ITEM_LORE: '<dark_gray>|</dark_gray> <gray>Right-click a player to freeze them!</gray>' # The lore (description) of the item.
 
 # Messages:
 # Sent when the player runs /give-freeze-wand and doesn't have the required permission. (see config.yml)
-NO_PERMISSION: '&c&l!&c You do not have permission to run this command.'
+NO_PERMISSION: '<red><bold>!</bold> You do not have permission to run this command.</red>'
 
 # Sent when a player attempts to freeze another player that is immune. (see config.yml for the immunity permission)
-PLAYER_IS_IMMUNE_TO_FREEZE: "&c&l!&c This player is immune to being frozen!"
+PLAYER_IS_IMMUNE_TO_FREEZE: "<red><bold>!</bold> This player is immune to being frozen!</red>"
 
 # Sent to the command executor who gave the freeze wand to a player.
 # %s - The name of the freeze wand item.
 # %s - The name of the player who received the freeze wand item.
-GAVE_FREEZE_WAND: '&a&l✔ &aYou have given the %s&a to %s&a.'
+GAVE_FREEZE_WAND: '<green><bold>✔</bold> You have given the %s to %s.</green>'
 
 # Sent when the player successfully receives a freeze wand.
 # %s - The name of the freeze wand item.
-RECEIVE_FREEZE_WAND: '&aYou have received the %s&a.'
+RECEIVE_FREEZE_WAND: '<green>You have received the %s.</green>'
 
 # Sent when you freeze someone.
 # %s - The name of the player that has been frozen.
-FREEZE_PLAYER: '&a&l✔ &aYou have successfully frozen %s&a.'
+FREEZE_PLAYER: '<green><bold>✔</bold> You have successfully frozen %s.</green>'
 
-PLAYER_GOT_FROZEN: '&c&l!&c You have been frozen.' # Sent to the player that got frozen.
-PLAYER_CANT_MOVE: '&cStop moving! You are frozen!' # Sent when a frozen player tries to move.
+PLAYER_GOT_FROZEN: '<red><bold>!</bold> You have been frozen.</red>' # Sent to the player that got frozen.
+PLAYER_CANT_MOVE: '<red>Stop moving! You are frozen!</red>' # Sent when a frozen player tries to move.
 
 # Sent when the player unfreezes another player.
 # %s - The name of the player that got unfrozen.
-UNFREEZE_PLAYER: '&a&l✔ &aYou have unfrozen %s&a.'
-PLAYER_GOT_UNFROZEN: '&aYou have been unfrozen!' # Sent when a player gets unfrozen.
+UNFREEZE_PLAYER: '<green><bold>✔</bold> You have unfrozen %s.<green>'
+PLAYER_GOT_UNFROZEN: '<green>You have been unfrozen!<green>' # Sent when a player gets unfrozen.
