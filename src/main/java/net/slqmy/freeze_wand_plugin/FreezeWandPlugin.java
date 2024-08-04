@@ -1,11 +1,15 @@
 package net.slqmy.freeze_wand_plugin;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import net.slqmy.freeze_wand_plugin.commands.SetLanguageCommand;
 import net.slqmy.freeze_wand_plugin.data.player.PlayerDataManager;
+import net.slqmy.freeze_wand_plugin.event.listeners.FreezeListener;
+import net.slqmy.freeze_wand_plugin.event.listeners.PlayerMoveListener;
 import net.slqmy.freeze_wand_plugin.language.LanguageManager;
 
 import java.util.ArrayList;
@@ -42,6 +46,11 @@ public final class FreezeWandPlugin extends JavaPlugin {
 
 		playerDataManager = new PlayerDataManager(this);
 		languageManager = new LanguageManager(this);
+
+		PluginManager pluginManager = Bukkit.getPluginManager();
+
+		pluginManager.registerEvents(new FreezeListener(this), this);
+		pluginManager.registerEvents(new PlayerMoveListener(this), this);
 
 		new SetLanguageCommand(this);
 	}
