@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.event.listener;
+package net.slqmy.freeze_wand_plugin.event.listeners;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
@@ -13,8 +13,8 @@ import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
 import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.enums.Message;
-import net.slqmy.freeze_wand_plugin.manager.MessageManager;
+import net.slqmy.freeze_wand_plugin.language.LanguageManager;
+import net.slqmy.freeze_wand_plugin.language.Message;
 
 import java.util.List;
 import java.util.UUID;
@@ -55,23 +55,23 @@ public final class FreezeListener implements Listener {
 			assert immuneToFreezePermission != null;
 
 			final List<UUID> frozenPlayers = plugin.getFrozenPlayers();
-			final MessageManager messageManager = plugin.getMessageManager();
+			final LanguageManager languageManager = plugin.getLanguageManager();
 
 			if (rightClickedEntity.hasPermission(immuneToFreezePermission)) {
-				player.sendMessage(messageManager.getMessage(Message.PLAYER_IS_IMMUNE_TO_FREEZE));
+				player.sendMessage(languageManager.getMessage(Message.PLAYER_IS_IMMUNE_TO_FREEZE, player));
 				return;
 			}
 
 			if (frozenPlayers.contains(rightClickedEntity.getUniqueId())) {
 				frozenPlayers.remove(rightClickedEntity.getUniqueId());
 
-				rightClickedEntity.sendMessage(messageManager.getMessage(Message.PLAYER_GOT_UNFROZEN));
-				player.sendMessage(messageManager.getMessage(Message.UNFREEZE_PLAYER, rightClickedEntity.getName()));
+				rightClickedEntity.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_UNFROZEN, rightClickedEntity));
+				player.sendMessage(languageManager.getMessage(Message.UNFREEZE_PLAYER, rightClickedEntity, rightClickedEntity.getName()));
 			} else {
 				frozenPlayers.add(rightClickedEntity.getUniqueId());
 
-				rightClickedEntity.sendMessage(messageManager.getMessage(Message.PLAYER_GOT_FROZEN));
-				player.sendMessage(messageManager.getMessage(Message.FREEZE_PLAYER, rightClickedEntity.getName()));
+				rightClickedEntity.sendMessage(languageManager.getMessage(Message.PLAYER_GOT_FROZEN, rightClickedEntity));
+				player.sendMessage(languageManager.getMessage(Message.FREEZE_PLAYER, player, rightClickedEntity.getName()));
 			}
 		}
 	}

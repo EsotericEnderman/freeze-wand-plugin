@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.event.listener;
+package net.slqmy.freeze_wand_plugin.event.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.jetbrains.annotations.NotNull;
 
 import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.enums.Message;
+import net.slqmy.freeze_wand_plugin.language.Message;
 
 public final class PlayerMoveListener implements Listener {
 
@@ -24,7 +24,7 @@ public final class PlayerMoveListener implements Listener {
 		if (plugin.getFrozenPlayers().contains(player.getUniqueId())) {
 			event.setCancelled(true);
 
-			player.sendMessage(plugin.getMessageManager().getMessage(Message.PLAYER_CANT_MOVE));
+			player.sendMessage(plugin.getLanguageManager().getMessage(Message.PLAYER_CANT_MOVE, player));
 		}
 	}
 }

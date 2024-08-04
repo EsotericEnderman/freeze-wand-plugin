@@ -1,9 +1,9 @@
-package net.slqmy.freeze_wand_plugin.command;
+package net.slqmy.freeze_wand_plugin.commands;
 
 import net.kyori.adventure.text.Component;
 import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.enums.Message;
-import net.slqmy.freeze_wand_plugin.manager.MessageManager;
+import net.slqmy.freeze_wand_plugin.language.LanguageManager;
+import net.slqmy.freeze_wand_plugin.language.Message;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -59,17 +59,17 @@ public class GiveFreezeWandCommand implements CommandExecutor {
 		final String permission = plugin.getConfig().getString("give-freeze-wand-permission");
 		assert permission != null;
 
-		final MessageManager messageManager = plugin.getMessageManager();
+		final LanguageManager languageManager = plugin.getLanguageManager();
 
 		if (!sender.hasPermission(permission)) {
-			sender.sendMessage(messageManager.getMessage(Message.NO_PERMISSION));
+			sender.sendMessage(languageManager.getMessage(Message.NO_PERMISSION, sender));
 			return true;
 		}
 
 		final ItemStack freezeWand = new ItemStack(Material.STICK);
 		final ItemMeta wandMeta = freezeWand.getItemMeta();
-		wandMeta.displayName(messageManager.getMessage(Message.FREEZE_WAND_ITEM_NAME));
-		wandMeta.lore(List.of(messageManager.getMessage(Message.FREEZE_WAND_ITEM_LORE)));
+		wandMeta.displayName(languageManager.getMessage(Message.FREEZE_WAND_ITEM_NAME, sender));
+		wandMeta.lore(List.of(languageManager.getMessage(Message.FREEZE_WAND_ITEM_LORE, sender)));
 		wandMeta.getPersistentDataContainer().set(new NamespacedKey(plugin, "is_freeze_wand"), PersistentDataType.BOOLEAN, true);
 		freezeWand.setItemMeta(wandMeta);
 
@@ -78,10 +78,10 @@ public class GiveFreezeWandCommand implements CommandExecutor {
 		final Component itemName = freezeWand.displayName();
 
 		if (!target.equals(sender)) {
-			sender.sendMessage(messageManager.getMessage(Message.GAVE_FREEZE_WAND, itemName, Component.text(target.getName())));
+			sender.sendMessage(languageManager.getMessage(Message.GAVE_FREEZE_WAND, sender, itemName, Component.text(target.getName())));
 		}
 
-		target.sendMessage(messageManager.getMessage(Message.RECEIVE_FREEZE_WAND, itemName));
+		target.sendMessage(languageManager.getMessage(Message.RECEIVE_FREEZE_WAND, target, itemName));
 		return true;
 	}
 }
