@@ -1,5 +1,9 @@
 package dev.esoteric_enderman.freeze_wand_plugin.data.player;
 
+import com.google.gson.Gson;
+import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
+import org.bukkit.entity.Player;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -9,118 +13,112 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
-import org.bukkit.entity.Player;
-
-import com.google.gson.Gson;
-
-import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
-
 public class PlayerDataManager {
 
-  private final FreezeWandPlugin plugin;
+    private final FreezeWandPlugin plugin;
 
-  private final String playerDataFolderName = "player-data";
-  private final String playerDataFolderPath;
-  private final File playerDataFolder;
+    private final String playerDataFolderName = "player-data";
+    private final String playerDataFolderPath;
+    private final File playerDataFolder;
 
-  private final Map<UUID, PlayerProfile> playerData = new HashMap<>();
+    private final Map<UUID, PlayerProfile> playerData = new HashMap<>();
 
-  public PlayerDataManager(FreezeWandPlugin plugin) {
-    this.plugin = plugin;
+    public PlayerDataManager(FreezeWandPlugin plugin) {
+        this.plugin = plugin;
 
-    playerDataFolderPath = plugin.getDataFolder().getPath() + File.separator + playerDataFolderName;
-    playerDataFolder = new File(playerDataFolderPath);
+        playerDataFolderPath = plugin.getDataFolder().getPath() + File.separator + playerDataFolderName;
+        playerDataFolder = new File(playerDataFolderPath);
 
-    load();
-  }
-
-  private void load() {
-    if (!playerDataFolder.exists()) {
-      return;
+        load();
     }
 
-    Gson gson = new Gson();
+    private void load() {
+        if (!playerDataFolder.exists()) {
+            return;
+        }
 
-    File[] playerDataFiles = playerDataFolder.listFiles();
-    for (File playerDataFile : playerDataFiles) {
-      String fileName = playerDataFile.getName();
-      String playerUuidString = fileName.split("\\.", 2)[0];
+        Gson gson = new Gson();
 
-      UUID playerUuid = UUID.fromString(playerUuidString);
-      PlayerProfile profile;
+        File[] playerDataFiles = playerDataFolder.listFiles();
+        for (File playerDataFile : playerDataFiles) {
+            String fileName = playerDataFile.getName();
+            String playerUuidString = fileName.split("\\.", 2)[0];
 
-      FileReader reader;
+            UUID playerUuid = UUID.fromString(playerUuidString);
+            PlayerProfile profile;
 
-      try {
-        reader = new FileReader(playerDataFile);
+            FileReader reader;
 
-        profile = gson.fromJson(reader, PlayerProfile.class);
+            try {
+                reader = new FileReader(playerDataFile);
 
-        reader.close();
-      } catch (IOException exception) {
-        exception.printStackTrace();
-        continue;
-      }
+                profile = gson.fromJson(reader, PlayerProfile.class);
 
-      playerData.put(playerUuid, profile);
-    }
-  }
+                reader.close();
+            } catch (IOException exception) {
+                exception.printStackTrace();
+                continue;
+            }
 
-  public void save() {
-    playerDataFolder.mkdir();
-
-    Gson gson = new Gson();
-
-    for (Entry<UUID, PlayerProfile> entry : playerData.entrySet()) {
-      UUID uuid = entry.getKey();
-      PlayerProfile profile = entry.getValue();
-
-      File file = new File(playerDataFolderPath + File.separator + uuid.toString() + ".json");
-
-      FileWriter writer;
-
-      try {
-        file.createNewFile();
-
-        writer = new FileWriter(file);
-
-        String json = gson.toJson(profile);
-
-        writer.write(json);
-
-        writer.close();
-        writer.flush();
-      } catch (IOException exception) {
-        exception.printStackTrace();
-      }
-    }
-  }
-
-  public PlayerProfile getPlayerProfile(UUID uuid, boolean createNewProfile) {
-    PlayerProfile profile = playerData.get(uuid);
-
-    if (profile == null) {
-      if (!createNewProfile) {
-        return null;
-      }
-
-      profile = new PlayerProfile(uuid, plugin.getLanguageManager().getDefaultLanguage());
-
-      playerData.put(uuid, profile);
+            playerData.put(playerUuid, profile);
+        }
     }
 
-    return playerData.get(uuid);
-  }
+    public void save() {
+        playerDataFolder.mkdir();
 
-  public PlayerProfile getPlayerProfile(UUID uuid) {
-    return getPlayerProfile(uuid, true);
-  }
+        Gson gson = new Gson();
 
-  public PlayerProfile getPlayerProfile(Player player, boolean createNewProfile) {
-    return getPlayerProfile(player.getUniqueId(), createNewProfile);
-  }
+        for (Entry<UUID, PlayerProfile> entry : playerData.entrySet()) {
+            UUID uuid = entry.getKey();
+            PlayerProfile profile = entry.getValue();
 
-  public PlayerProfile getPlayerProfile(Player player) {
-    return getPlayerProfile(player, true);
-  }
+            File file = new File(playerDataFolderPath + File.separator + uuid.toString() + ".json");
+
+            FileWriter writer;
+
+            try {
+                file.createNewFile();
+
+                writer = new FileWriter(file);
+
+                String json = gson.toJson(profile);
+
+                writer.write(json);
+
+                writer.close();
+                writer.flush();
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+
+    public PlayerProfile getPlayerProfile(UUID uuid, boolean createNewProfile) {
+        PlayerProfile profile = playerData.get(uuid);
+
+        if (profile == null) {
+            if (!createNewProfile) {
+                return null;
+            }
+
+            profile = new PlayerProfile(uuid, plugin.getLanguageManager().getDefaultLanguage());
+
+            playerData.put(uuid, profile);
+        }
+
+        return playerData.get(uuid);
+    }
+
+    public PlayerProfile getPlayerProfile(UUID uuid) {
+        return getPlayerProfile(uuid, true);
+    }
+
+    public PlayerProfile getPlayerProfile(Player player, boolean createNewProfile) {
+        return getPlayerProfile(player.getUniqueId(), createNewProfile);
+    }
+
+    public PlayerProfile getPlayerProfile(Player player) {
+        return getPlayerProfile(player, true);
+    }
 }
