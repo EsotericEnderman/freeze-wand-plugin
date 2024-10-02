@@ -32,7 +32,7 @@ public class SetLanguageCommand extends CommandAPICommand {
 
                     if (!languages.contains(selectedLanguage)) {
                         Component errorMessage = languageManager.getMessage(Message.UNKNOWN_LANGUAGE, info.sender(), true,
-                                selectedLanguage);
+                                new Object[]{selectedLanguage});
                         throw CustomArgumentException.fromAdventureComponent(errorMessage);
                     }
 
