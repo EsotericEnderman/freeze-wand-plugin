@@ -61,4 +61,11 @@ public final class FreezeWandPlugin extends JavaPlugin {
 
         new GiveFreezeWandCommand(this);
     }
+
+    @Override
+    public void onDisable() {
+        if (playerDataManager != null) {
+            playerDataManager.save();
+        }
+    }
 }
