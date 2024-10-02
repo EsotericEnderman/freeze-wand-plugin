@@ -29,8 +29,6 @@ public class SetLanguageCommand extends CommandAPICommand {
                 info -> {
                     String selectedLanguage = info.currentInput();
 
-                    Bukkit.getLogger().info(selectedLanguage);
-
                     if (!languages.contains(selectedLanguage)) {
                         Component errorMessage = languageManager.getMessage(Message.UNKNOWN_LANGUAGE, info.sender(), true,
                                 selectedLanguage);
