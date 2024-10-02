@@ -28,24 +28,21 @@ public class SetLanguageCommand extends CommandAPICommand {
 
     String languageArgumentNodeName = "language";
 
-    Argument<String> languageArgument = new CustomArgument<String, String>(
-        new GreedyStringArgument(languageArgumentNodeName),
-        new CustomArgumentInfoParser<String, String>() {
-          @Override
-          public String apply(CustomArgumentInfo<String> info) throws CustomArgumentException {
-            String selectedLanguage = info.currentInput();
+    Argument<String> languageArgument = new CustomArgument<>(
+            new GreedyStringArgument(languageArgumentNodeName),
+            info -> {
+                String selectedLanguage = info.currentInput();
 
-            Bukkit.getLogger().info(selectedLanguage);
+                Bukkit.getLogger().info(selectedLanguage);
 
-            if (!languages.contains(selectedLanguage)) {
-              Component errorMessage = languageManager.getMessage(Message.UNKNOWN_LANGUAGE, info.sender(), true,
-                  new Object[] { selectedLanguage });
-              throw CustomArgumentException.fromAdventureComponent(errorMessage);
-            }
+                if (!languages.contains(selectedLanguage)) {
+                    Component errorMessage = languageManager.getMessage(Message.UNKNOWN_LANGUAGE, info.sender(), true,
+                            new Object[]{selectedLanguage});
+                    throw CustomArgumentException.fromAdventureComponent(errorMessage);
+                }
 
-            return selectedLanguage;
-          }
-        }).includeSuggestions(ArgumentSuggestions.strings(languageManager.getLanguages().toArray(String[]::new)));
+                return selectedLanguage;
+            }).includeSuggestions(ArgumentSuggestions.strings(languageManager.getLanguages().toArray(String[]::new)));
 
     withArguments(languageArgument);
 
