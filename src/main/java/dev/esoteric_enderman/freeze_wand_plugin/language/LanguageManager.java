@@ -1,10 +1,10 @@
-package net.slqmy.freeze_wand_plugin.language;
+package dev.esoteric_enderman.freeze_wand_plugin.language;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.data.player.PlayerProfile;
-import net.slqmy.freeze_wand_plugin.util.FileUtil;
+import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
+import dev.esoteric_enderman.freeze_wand_plugin.data.player.PlayerProfile;
+import dev.esoteric_enderman.freeze_wand_plugin.util.FileUtil;
 
 import java.util.UUID;
 import java.util.regex.Matcher;

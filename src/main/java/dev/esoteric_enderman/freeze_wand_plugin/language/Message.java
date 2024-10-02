@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.language;
+package dev.esoteric_enderman.freeze_wand_plugin.language;
 
 public enum Message {
 	SET_LANGUAGE_SUCCESSFULLY,

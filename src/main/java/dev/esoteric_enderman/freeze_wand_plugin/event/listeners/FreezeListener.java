@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.event.listeners;
+package dev.esoteric_enderman.freeze_wand_plugin.event.listeners;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -11,9 +11,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
-import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.language.LanguageManager;
-import net.slqmy.freeze_wand_plugin.language.Message;
+import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
+import dev.esoteric_enderman.freeze_wand_plugin.language.LanguageManager;
+import dev.esoteric_enderman.freeze_wand_plugin.language.Message;
 
 import java.util.List;
 import java.util.UUID;

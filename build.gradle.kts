@@ -37,10 +37,10 @@ fun pascalcase(kebabcaseString: String): String {
 
 description = "A simple freeze wand plugin, which allows you admins and staff to freeze players by right-clicking them with a custom stick item."
 
-val mainProjectAuthor = "Slqmy"
+val mainProjectAuthor = "Esoteric Enderman"
 val projectAuthors = listOfNotNull(mainProjectAuthor)
 
-val topLevelDomain = "net"
+val topLevelDomain = "dev"
 
 group = topLevelDomain + groupStringSeparator + mainProjectAuthor.lowercase() + groupStringSeparator + snakecase(rootProject.name)
 version = "1.0.0-SNAPSHOT"

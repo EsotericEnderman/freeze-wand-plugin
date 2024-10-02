@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.commands;
+package dev.esoteric_enderman.freeze_wand_plugin.commands;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.Argument;
@@ -14,9 +14,9 @@ import java.util.Set;
 import org.bukkit.Bukkit;
 
 import net.kyori.adventure.text.Component;
-import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.language.LanguageManager;
-import net.slqmy.freeze_wand_plugin.language.Message;
+import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
+import dev.esoteric_enderman.freeze_wand_plugin.language.LanguageManager;
+import dev.esoteric_enderman.freeze_wand_plugin.language.Message;
 
 public class SetLanguageCommand extends CommandAPICommand {
 

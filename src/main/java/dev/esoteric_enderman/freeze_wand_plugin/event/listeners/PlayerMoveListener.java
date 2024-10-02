@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.event.listeners;
+package dev.esoteric_enderman.freeze_wand_plugin.event.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -6,8 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.jetbrains.annotations.NotNull;
 
-import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
-import net.slqmy.freeze_wand_plugin.language.Message;
+import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
+import dev.esoteric_enderman.freeze_wand_plugin.language.Message;
 
 public final class PlayerMoveListener implements Listener {
 

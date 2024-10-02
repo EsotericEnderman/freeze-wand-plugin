@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.data.player;
+package dev.esoteric_enderman.freeze_wand_plugin.data.player;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 import com.google.gson.Gson;
 
-import net.slqmy.freeze_wand_plugin.FreezeWandPlugin;
+import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
 
 public class PlayerDataManager {
 

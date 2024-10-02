@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin.util;
+package dev.esoteric_enderman.freeze_wand_plugin.util;
 
 import java.util.stream.Collectors;
 import java.util.Collections;

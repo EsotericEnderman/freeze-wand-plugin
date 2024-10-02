@@ -1,4 +1,4 @@
-package net.slqmy.freeze_wand_plugin;
+package dev.esoteric_enderman.freeze_wand_plugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -7,12 +7,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
-import net.slqmy.freeze_wand_plugin.commands.GiveFreezeWandCommand;
-import net.slqmy.freeze_wand_plugin.commands.SetLanguageCommand;
-import net.slqmy.freeze_wand_plugin.data.player.PlayerDataManager;
-import net.slqmy.freeze_wand_plugin.event.listeners.FreezeListener;
-import net.slqmy.freeze_wand_plugin.event.listeners.PlayerMoveListener;
-import net.slqmy.freeze_wand_plugin.language.LanguageManager;
+import dev.esoteric_enderman.freeze_wand_plugin.commands.GiveFreezeWandCommand;
+import dev.esoteric_enderman.freeze_wand_plugin.commands.SetLanguageCommand;
+import dev.esoteric_enderman.freeze_wand_plugin.data.player.PlayerDataManager;
+import dev.esoteric_enderman.freeze_wand_plugin.event.listeners.FreezeListener;
+import dev.esoteric_enderman.freeze_wand_plugin.event.listeners.PlayerMoveListener;
+import dev.esoteric_enderman.freeze_wand_plugin.language.LanguageManager;
 
 import java.util.ArrayList;
 import java.util.UUID;
