@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.*;
@@ -32,7 +33,7 @@ public class LanguageManager {
 
     private final Map<String, Map<Message, String>> languages = new HashMap<>();
 
-    public LanguageManager(FreezeWandPlugin plugin) {
+    public LanguageManager(@NotNull FreezeWandPlugin plugin) {
         this.plugin = plugin;
 
         File dataFolder = plugin.getDataFolder();
@@ -102,11 +103,11 @@ public class LanguageManager {
         return language;
     }
 
-    public String getLanguage(PlayerProfile profile) {
+    public String getLanguage(@NotNull PlayerProfile profile) {
         return getLanguage(profile.getUuid());
     }
 
-    public void setLanguage(PlayerProfile profile, String language) {
+    public void setLanguage(@NotNull PlayerProfile profile, String language) {
         profile.setLanguage(language);
     }
 
@@ -114,7 +115,7 @@ public class LanguageManager {
         setLanguage(plugin.getPlayerDataManager().getPlayerProfile(uuid), language);
     }
 
-    public void setLanguage(Player player, String language) {
+    public void setLanguage(@NotNull Player player, String language) {
         setLanguage(player.getUniqueId(), language);
     }
 
@@ -138,7 +139,7 @@ public class LanguageManager {
         return getLocale(player);
     }
 
-    public String getLocale(PlayerProfile profile) {
+    public String getLocale(@NotNull PlayerProfile profile) {
         return getLocale(profile.getUuid());
     }
 

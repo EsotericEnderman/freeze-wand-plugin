@@ -3,6 +3,7 @@ package dev.esoteric_enderman.freeze_wand_plugin.data.player;
 import com.google.gson.Gson;
 import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileReader;
@@ -23,7 +24,7 @@ public class PlayerDataManager {
 
     private final Map<UUID, PlayerProfile> playerData = new HashMap<>();
 
-    public PlayerDataManager(FreezeWandPlugin plugin) {
+    public PlayerDataManager(@NotNull FreezeWandPlugin plugin) {
         this.plugin = plugin;
 
         playerDataFolderPath = plugin.getDataFolder().getPath() + File.separator + playerDataFolderName;
@@ -114,7 +115,7 @@ public class PlayerDataManager {
         return getPlayerProfile(uuid, true);
     }
 
-    public PlayerProfile getPlayerProfile(Player player, boolean createNewProfile) {
+    public PlayerProfile getPlayerProfile(@NotNull Player player, boolean createNewProfile) {
         return getPlayerProfile(player.getUniqueId(), createNewProfile);
     }
 

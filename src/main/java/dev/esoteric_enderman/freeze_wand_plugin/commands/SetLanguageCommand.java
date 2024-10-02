@@ -11,12 +11,13 @@ import dev.jorel.commandapi.arguments.CustomArgument.CustomArgumentException;
 import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
 public class SetLanguageCommand extends CommandAPICommand {
 
-    public SetLanguageCommand(FreezeWandPlugin plugin) {
+    public SetLanguageCommand(@NotNull FreezeWandPlugin plugin) {
         super("set-language");
 
         LanguageManager languageManager = plugin.getLanguageManager();
