@@ -17,7 +17,6 @@ import java.util.List;
 
 public class GiveFreezeWandCommand extends CommandAPICommand {
 
-
     public GiveFreezeWandCommand(@NotNull final FreezeWandPlugin plugin) {
         super("give-freeze-wand");
 
