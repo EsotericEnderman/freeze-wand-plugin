@@ -267,7 +267,7 @@ public class LanguageManager {
     }
 
     public Component[] toComponents(Object... objects) {
-        return Stream.of(objects).map((object) -> toComponent(object)).toArray(Component[]::new);
+        return Stream.of(objects).map(this::toComponent).toArray(Component[]::new);
     }
 
     public Component toComponent(Object object) {
