@@ -1,8 +1,8 @@
-package dev.esoteric_enderman.freeze_wand_plugin.commands;
+package dev.enderman.minecraft.plugins.freezewand.commands;
 
-import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
-import dev.esoteric_enderman.freeze_wand_plugin.language.LanguageManager;
-import dev.esoteric_enderman.freeze_wand_plugin.language.Message;
+import dev.enderman.minecraft.plugins.freezewand.FreezeWandPlugin;
+import dev.enderman.minecraft.plugins.freezewand.language.LanguageManager;
+import dev.enderman.minecraft.plugins.freezewand.language.Message;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.PlayerArgument;
 import net.kyori.adventure.text.Component;

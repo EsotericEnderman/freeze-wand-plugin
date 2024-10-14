@@ -1,7 +1,7 @@
-package dev.esoteric_enderman.freeze_wand_plugin.event.listeners;
+package dev.enderman.minecraft.plugins.freezewand.event.listeners;
 
-import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
-import dev.esoteric_enderman.freeze_wand_plugin.language.Message;
+import dev.enderman.minecraft.plugins.freezewand.FreezeWandPlugin;
+import dev.enderman.minecraft.plugins.freezewand.language.Message;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

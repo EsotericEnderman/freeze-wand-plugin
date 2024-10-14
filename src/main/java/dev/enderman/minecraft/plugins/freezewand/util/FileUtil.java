@@ -1,4 +1,4 @@
-package dev.esoteric_enderman.freeze_wand_plugin.util;
+package dev.enderman.minecraft.plugins.freezewand.util;
 
 import java.io.IOException;
 import java.net.URL;

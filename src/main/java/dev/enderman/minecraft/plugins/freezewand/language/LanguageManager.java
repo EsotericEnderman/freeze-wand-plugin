@@ -1,8 +1,8 @@
-package dev.esoteric_enderman.freeze_wand_plugin.language;
+package dev.enderman.minecraft.plugins.freezewand.language;
 
-import dev.esoteric_enderman.freeze_wand_plugin.FreezeWandPlugin;
-import dev.esoteric_enderman.freeze_wand_plugin.data.player.PlayerProfile;
-import dev.esoteric_enderman.freeze_wand_plugin.util.FileUtil;
+import dev.enderman.minecraft.plugins.freezewand.FreezeWandPlugin;
+import dev.enderman.minecraft.plugins.freezewand.data.player.PlayerProfile;
+import dev.enderman.minecraft.plugins.freezewand.util.FileUtil;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;

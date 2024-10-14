@@ -1,11 +1,11 @@
-package dev.esoteric_enderman.freeze_wand_plugin;
+package dev.enderman.minecraft.plugins.freezewand;
 
-import dev.esoteric_enderman.freeze_wand_plugin.commands.GiveFreezeWandCommand;
-import dev.esoteric_enderman.freeze_wand_plugin.commands.SetLanguageCommand;
-import dev.esoteric_enderman.freeze_wand_plugin.data.player.PlayerDataManager;
-import dev.esoteric_enderman.freeze_wand_plugin.event.listeners.FreezeListener;
-import dev.esoteric_enderman.freeze_wand_plugin.event.listeners.PlayerMoveListener;
-import dev.esoteric_enderman.freeze_wand_plugin.language.LanguageManager;
+import dev.enderman.minecraft.plugins.freezewand.commands.GiveFreezeWandCommand;
+import dev.enderman.minecraft.plugins.freezewand.commands.SetLanguageCommand;
+import dev.enderman.minecraft.plugins.freezewand.data.player.PlayerDataManager;
+import dev.enderman.minecraft.plugins.freezewand.event.listeners.FreezeListener;
+import dev.enderman.minecraft.plugins.freezewand.event.listeners.PlayerMoveListener;
+import dev.enderman.minecraft.plugins.freezewand.language.LanguageManager;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import org.bukkit.Bukkit;

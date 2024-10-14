@@ -1,4 +1,4 @@
-package dev.esoteric_enderman.freeze_wand_plugin.data.player;
+package dev.enderman.minecraft.plugins.freezewand.data.player;
 
 import java.util.UUID;
 
