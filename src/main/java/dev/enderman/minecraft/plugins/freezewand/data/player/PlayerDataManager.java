@@ -87,8 +87,8 @@ public class PlayerDataManager {
 
                 writer.write(json);
 
-                writer.close();
                 writer.flush();
+                writer.close();
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
